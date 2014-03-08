@@ -1,4 +1,6 @@
 
+var parse = require('url').parse;
+
 /**
  * Parse the `req` url with memoization.
  *
