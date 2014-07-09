@@ -26,7 +26,7 @@ var tryFastRegExp = /^\/[^\\#]*$/
 module.exports = function parseUrl(req){
   var parsed = req._parsedUrl
 
-  if (typeof parsed === 'object' && parsed instanceof Url && parsed.href === req.url) {
+  if (fresh(req, parsed)) {
     return parsed
   }
 
@@ -56,7 +56,9 @@ function fastparse(str) {
 
     // Construct simple URL
     if (simplePath) {
-      var url = new Url()
+      var url = Url !== undefined
+        ? new Url()
+        : {}
       url.path = str
       url.href = str
       url.pathname = simplePath[1]
@@ -71,4 +73,20 @@ function fastparse(str) {
   }
 
   return parse(str)
+}
+
+/**
+ * Determine if parsed is still fresh for req.
+ *
+ * @param {ServerRequest} req
+ * @param {object} parsedUrl
+ * @return {boolean}
+ * @api private
+ */
+
+function fresh(req, parsedUrl) {
+  return typeof parsedUrl === 'object'
+    && parsedUrl !== null
+    && (Url === undefined || parsedUrl instanceof Url)
+    && parsed.href === req.url
 }
