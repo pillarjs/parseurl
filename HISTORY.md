@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * Incorporate URL href-only parse fast-path
+
 1.0.1 / 2014-03-08
 ==================
 
