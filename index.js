@@ -88,5 +88,5 @@ function fresh(req, parsedUrl) {
   return typeof parsedUrl === 'object'
     && parsedUrl !== null
     && (Url === undefined || parsedUrl instanceof Url)
-    && parsed.href === req.url
+    && parsedUrl.href === req.url
 }
