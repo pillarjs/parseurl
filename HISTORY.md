@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * Fix Node.js 0.8 compatibility
+
 1.1.0 / 2014-07-08
 ==================
 

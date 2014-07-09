@@ -26,7 +26,7 @@ var tryFastRegExp = /^\/[^\\#]*$/
 module.exports = function parseUrl(req){
   var parsed = req._parsedUrl
 
-  if (parsed instanceof Url && parsed.href === req.url) {
+  if (typeof parsed === 'object' && parsed instanceof Url && parsed.href === req.url) {
     return parsed
   }
 
