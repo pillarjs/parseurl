@@ -10,9 +10,14 @@ var benchmarks = require('beautify-benchmark')
 var url = require('url');
 var parseurl = require('./')
 var fasturl = require('fast-url-parser')
+var assert = require('assert')
 
 var simpleurl = '/foo/bar?q=123&b=c'
+var simpleurlpath = '/foo/bar'
+var simpleurlqs = 'q=123&b=c'
 var fullurl = 'https://github.com/joyent/node/pull/7878?faster=parseurl&ok=true'
+var fullurlpath = '/joyent/node/pull/7878'
+var fullurlqs = 'faster=parseurl&ok=true'
 
 // console.log(url.parse(simpleurl))
 // console.log(parseurl({url: simpleurl}))
@@ -24,22 +29,34 @@ var suite = new Benchmark.Suite()
 suite
 
 .add('url.parse(simpleurl)', function() {
-  url.parse(simpleurl)
+  var parsed = url.parse(simpleurl)
+  assert.equal(simpleurlpath, parsed.pathname)
+  assert.equal(simpleurlqs, parsed.query)
 })
 .add('url.parse(fullurl)', function() {
-  url.parse(fullurl)
+  var parsed = url.parse(fullurl)
+  assert.equal(fullurlpath, parsed.pathname)
+  assert.equal(fullurlqs, parsed.query)
 })
 .add('fasturl.parse(simpleurl)', function() {
-  fasturl.parse(simpleurl)
+  var parsed = fasturl.parse(simpleurl)
+  assert.equal(simpleurlpath, parsed.pathname)
+  assert.equal(simpleurlqs, parsed.query)
 })
 .add('fasturl.parse(fullurl)', function() {
-  fasturl.parse(fullurl)
+  var parsed = fasturl.parse(fullurl)
+  assert.equal(fullurlpath, parsed.pathname)
+  assert.equal(fullurlqs, parsed.query)
 })
 .add('parseurl(simpleurl)', function() {
-  parseurl({url: simpleurl})
+  var parsed = parseurl({url: simpleurl})
+  assert.equal(simpleurlpath, parsed.pathname)
+  assert.equal(simpleurlqs, parsed.query)
 })
 .add('parseurl(fullurl)', function() {
-  parseurl({url: fullurl})
+  var parsed = parseurl({url: fullurl})
+  assert.equal(fullurlpath, parsed.pathname)
+  assert.equal(fullurlqs, parsed.query)
 })
 
 .on('cycle', function(event) {
