@@ -11,6 +11,7 @@
   "repository": "expressjs/parseurl",
   "license": "MIT",
   "devDependencies": {
+    "fast-url-parser": "1",
     "beautify-benchmark": "*",
     "benchmark": "*"
   }

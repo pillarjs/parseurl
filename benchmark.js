@@ -9,6 +9,7 @@ var Benchmark = require('benchmark')
 var benchmarks = require('beautify-benchmark')
 var url = require('url');
 var parseurl = require('./')
+var fasturl = require('fast-url-parser')
 
 var simpleurl = '/foo/bar?q=123&b=c'
 var fullurl = 'https://github.com/joyent/node/pull/7878?faster=parseurl&ok=true'
@@ -27,6 +28,12 @@ suite
 })
 .add('url.parse(fullurl)', function() {
   url.parse(fullurl)
+})
+.add('fasturl.parse(simpleurl)', function() {
+  fasturl.parse(simpleurl)
+})
+.add('fasturl.parse(fullurl)', function() {
+  fasturl.parse(fullurl)
 })
 .add('parseurl(simpleurl)', function() {
   parseurl({url: simpleurl})
