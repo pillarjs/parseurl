@@ -8,14 +8,7 @@
     "url": "http://jongleberry.com",
     "twitter": "https://twitter.com/jongleberry"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/expressjs/parseurl.git"
-  },
-  "bugs": {
-    "url": "https://github.com/expressjs/parseurl/issues",
-    "email": "me@jongleberry.com"
-  },
+  "repository": "expressjs/parseurl",
   "license": "MIT",
   "devDependencies": {
     "beautify-benchmark": "*",
