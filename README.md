@@ -1,5 +1,8 @@
 # parseurl
 
+[![NPM version](https://badge.fury.io/js/parseurl.svg)](http://badge.fury.io/js/parseurl)
+[![Build Status](https://travis-ci.org/expressjs/parseurl.svg?branch=master)](https://travis-ci.org/expressjs/parseurl)
+
 Parse a URL with memoization.
 
 ## API
@@ -16,7 +19,7 @@ $ npm run-script bench
 > parseurl@1.1.3 bench nodejs-parseurl
 > node benchmark/index.js
 
-> node benchmark\fullurl.js
+> node benchmark/fullurl.js
 
   Parsing URL "http://localhost:8888/foo/bar?user=tj&pet=fluffy"
 
@@ -28,7 +31,7 @@ $ npm run-script bench
   nativeurl x    53,146 ops/sec ±0.44% (193 runs sampled)
   parseurl  x    52,309 ops/sec ±0.44% (195 runs sampled)
 
-> node benchmark\pathquery.js
+> node benchmark/pathquery.js
 
   Parsing URL "/foo/bar?user=tj&pet=fluffy"
 
@@ -40,7 +43,7 @@ $ npm run-script bench
   nativeurl x    94,656 ops/sec ±0.73% (188 runs sampled)
   parseurl  x 2,442,232 ops/sec ±0.45% (194 runs sampled)
 
-> node benchmark\samerequest.js
+> node benchmark/samerequest.js
 
   Parsing URL "/foo/bar?user=tj&pet=fluffy" on same request object
 
@@ -52,7 +55,7 @@ $ npm run-script bench
   nativeurl x     97,559 ops/sec ±0.73% (191 runs sampled)
   parseurl  x 10,678,247 ops/sec ±0.59% (187 runs sampled)
 
-> node benchmark\simplepath.js
+> node benchmark/simplepath.js
 
   Parsing URL "/foo/bar"
 
@@ -64,7 +67,7 @@ $ npm run-script bench
   nativeurl x   101,416 ops/sec ±0.29% (196 runs sampled)
   parseurl  x 3,999,795 ops/sec ±0.29% (193 runs sampled)
 
-> node benchmark\slash.js
+> node benchmark/slash.js
 
   Parsing URL "/"
 
