@@ -13,9 +13,12 @@
   "devDependencies": {
     "benchmark": "1.0.0",
     "beautify-benchmark": "0.2.4",
-    "fast-url-parser": "~1.0.0"
+    "fast-url-parser": "~1.0.0",
+    "mocha": "~1.20.0"
   },
   "scripts": {
-    "bench": "node benchmark/index.js"
+    "bench": "node benchmark/index.js",
+    "test": "mocha --check-leaks --bail --reporter spec test/",
+    "test": "mocha --check-leaks --reporter spec test/"
   }
 }
