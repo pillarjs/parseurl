@@ -39,10 +39,45 @@ describe('parseurl(req)', function () {
 
     it('should reflect url changes', function () {
       var req = createReq('/foo/bar')
-      assert.equal(parseurl(req).pathname, '/foo/bar')
+      var url = parseurl(req)
+      var val = Math.random()
+
+      url._token = val
+      assert.equal(url._token, val)
+      assert.equal(url.pathname, '/foo/bar')
 
       req.url = '/bar/baz'
+      url = parseurl(req)
+      assert.equal(url._token, undefined)
       assert.equal(parseurl(req).pathname, '/bar/baz')
+    })
+
+    it('should cache parsing', function () {
+      var req = createReq('/foo/bar')
+      var url = parseurl(req)
+      var val = Math.random()
+
+      url._token = val
+      assert.equal(url._token, val)
+      assert.equal(url.pathname, '/foo/bar')
+
+      url = parseurl(req)
+      assert.equal(url._token, val)
+      assert.equal(url.pathname, '/foo/bar')
+    })
+
+    it('should cache parsing where href does not match', function () {
+      var req = createReq('/foo/bar ')
+      var url = parseurl(req)
+      var val = Math.random()
+
+      url._token = val
+      assert.equal(url._token, val)
+      assert.equal(url.pathname, '/foo/bar')
+
+      url = parseurl(req)
+      assert.equal(url._token, val)
+      assert.equal(url.pathname, '/foo/bar')
     })
   })
 })

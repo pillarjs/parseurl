@@ -25,17 +25,20 @@ var tryFastRegExp = /^\/[^\\#]*$/
 
 module.exports = function parseUrl(req){
   var parsed = req._parsedUrl
+  var url = req.url
 
-  if (fresh(req, parsed)) {
+  if (fresh(url, parsed)) {
     return parsed
   }
 
-  parsed = fastparse(req.url)
+  parsed = fastparse(url)
 
   if (parsed.auth && !parsed.protocol && parsed.href.indexOf('//') !== -1) {
     // This parses pathnames, and a strange pathname like //r@e should work
-    parsed = fastparse(req.url.replace(/@/g, '%40'))
+    parsed = fastparse(url.replace(/@/g, '%40'))
   }
+
+  parsed._raw = url
 
   return req._parsedUrl = parsed
 };
@@ -76,17 +79,17 @@ function fastparse(str) {
 }
 
 /**
- * Determine if parsed is still fresh for req.
+ * Determine if parsed is still fresh for url.
  *
- * @param {ServerRequest} req
+ * @param {string} url
  * @param {object} parsedUrl
  * @return {boolean}
  * @api private
  */
 
-function fresh(req, parsedUrl) {
+function fresh(url, parsedUrl) {
   return typeof parsedUrl === 'object'
     && parsedUrl !== null
     && (Url === undefined || parsedUrl instanceof Url)
-    && parsedUrl.href === req.url
+    && parsedUrl._raw === url
 }
