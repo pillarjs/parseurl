@@ -5,11 +5,24 @@
 
 Parse a URL with memoization.
 
+## Install
+
+```bash
+$ npm install parseurl
+```
+
 ## API
 
-### var parsedUrl = parseurl(req)
+```js
+var parseurl = require('parseurl')
+```
 
-`parsedUrl` is basically a `url.parse()` object.
+### parseurl(req)
+
+Parse the URL of the given request object (looks at the `req.url` property)
+and return the result. The result is the same as `url.parse` in Node.js core.
+Calling this function multiple times on the same `req` where `req.url` does
+not change will return a cached parsed object, rather than parsing again.
 
 ## Benchmark
 
@@ -79,3 +92,7 @@ $ npm run-script bench
   nativeurl x   101,633 ops/sec ±0.28% (193 runs sampled)
   parseurl  x 4,306,789 ops/sec ±0.30% (191 runs sampled)
 ```
+
+## License
+
+  [MIT](LICENSE)
