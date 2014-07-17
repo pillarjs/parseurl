@@ -40,9 +40,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 1,289,858 ops/sec ±0.26% (192 runs sampled)
-  nativeurl x    57,692 ops/sec ±0.30% (195 runs sampled)
-  parseurl  x    56,530 ops/sec ±0.19% (195 runs sampled)
+  fasturl   x 1,290,780 ops/sec ±0.46% (195 runs sampled)
+  nativeurl x    56,401 ops/sec ±0.22% (196 runs sampled)
+  parseurl  x    55,231 ops/sec ±0.22% (194 runs sampled)
 
 > node benchmark/pathquery.js
 
@@ -52,9 +52,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 2,141,943 ops/sec ±0.27% (195 runs sampled)
-  nativeurl x    98,455 ops/sec ±0.26% (195 runs sampled)
-  parseurl  x 2,614,399 ops/sec ±0.31% (191 runs sampled)
+  fasturl   x 1,986,668 ops/sec ±0.27% (190 runs sampled)
+  nativeurl x    98,740 ops/sec ±0.21% (195 runs sampled)
+  parseurl  x 2,628,171 ops/sec ±0.36% (195 runs sampled)
 
 > node benchmark/samerequest.js
 
@@ -64,9 +64,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x  2,169,929 ops/sec ±0.25% (195 runs sampled)
-  nativeurl x    100,007 ops/sec ±0.47% (196 runs sampled)
-  parseurl  x 10,409,346 ops/sec ±0.63% (183 runs sampled)
+  fasturl   x  2,184,468 ops/sec ±0.40% (194 runs sampled)
+  nativeurl x     99,437 ops/sec ±0.71% (194 runs sampled)
+  parseurl  x 10,498,005 ops/sec ±0.61% (186 runs sampled)
 
 > node benchmark/simplepath.js
 
@@ -76,9 +76,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 4,535,526 ops/sec ±0.34% (193 runs sampled)
-  nativeurl x   102,778 ops/sec ±0.32% (195 runs sampled)
-  parseurl  x 4,182,527 ops/sec ±0.32% (193 runs sampled)
+  fasturl   x 4,535,825 ops/sec ±0.27% (191 runs sampled)
+  nativeurl x    98,769 ops/sec ±0.54% (191 runs sampled)
+  parseurl  x 4,164,865 ops/sec ±0.34% (192 runs sampled)
 
 > node benchmark/slash.js
 
@@ -88,9 +88,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 4,830,279 ops/sec ±0.79% (191 runs sampled)
-  nativeurl x   101,633 ops/sec ±0.28% (193 runs sampled)
-  parseurl  x 4,306,789 ops/sec ±0.30% (191 runs sampled)
+  fasturl   x 4,908,405 ops/sec ±0.42% (191 runs sampled)
+  nativeurl x   100,945 ops/sec ±0.59% (188 runs sampled)
+  parseurl  x 4,333,208 ops/sec ±0.27% (194 runs sampled)
 ```
 
 ## License

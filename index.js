@@ -53,17 +53,16 @@ function fastparse(str) {
 
   // Construct simple URL
   if (simplePath) {
+    var pathname = simplePath[1]
+    var search = simplePath[2] || null
     var url = Url !== undefined
       ? new Url()
       : {}
     url.path = str
     url.href = str
-    url.pathname = simplePath[1]
-
-    if (simplePath[2]) {
-      url.search = simplePath[2];
-      url.query = url.search.substr(1);
-    }
+    url.pathname = pathname
+    url.search = search
+    url.query = search && search.substr(1)
 
     return url
   }

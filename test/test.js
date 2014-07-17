@@ -11,6 +11,20 @@ describe('parseurl(req)', function () {
     assert.equal(url.href, '/foo/bar')
     assert.equal(url.pathname, '/foo/bar')
     assert.equal(url.port, null)
+    assert.equal(url.query, null)
+    assert.equal(url.search, null)
+  })
+
+  it('should parse with query string', function () {
+    var req = createReq('/foo/bar?fizz=buzz')
+    var url = parseurl(req)
+    assert.equal(url.host, null)
+    assert.equal(url.hostname, null)
+    assert.equal(url.href, '/foo/bar?fizz=buzz')
+    assert.equal(url.pathname, '/foo/bar')
+    assert.equal(url.port, null)
+    assert.equal(url.query, 'fizz=buzz')
+    assert.equal(url.search, '?fizz=buzz')
   })
 
   it('should parse a full URL', function () {
@@ -21,6 +35,8 @@ describe('parseurl(req)', function () {
     assert.equal(url.href, 'http://localhost:8888/foo/bar')
     assert.equal(url.pathname, '/foo/bar')
     assert.equal(url.port, '8888')
+    assert.equal(url.query, null)
+    assert.equal(url.search, null)
   })
 
   it('should not choke on auth-looking URL', function () {
