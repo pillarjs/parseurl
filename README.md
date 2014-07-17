@@ -2,6 +2,7 @@
 
 [![NPM version](https://badge.fury.io/js/parseurl.svg)](http://badge.fury.io/js/parseurl)
 [![Build Status](https://travis-ci.org/expressjs/parseurl.svg?branch=master)](https://travis-ci.org/expressjs/parseurl)
+[![Coverage Status](https://img.shields.io/coveralls/expressjs/parseurl.svg?branch=master)](https://coveralls.io/r/expressjs/parseurl)
 
 Parse a URL with memoization.
 

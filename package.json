@@ -14,11 +14,13 @@
     "benchmark": "1.0.0",
     "beautify-benchmark": "0.2.4",
     "fast-url-parser": "~1.0.0",
+    "istanbul": "0.3.0",
     "mocha": "~1.20.0"
   },
   "scripts": {
     "bench": "node benchmark/index.js",
     "test": "mocha --check-leaks --bail --reporter spec test/",
-    "test-travis": "mocha --check-leaks --reporter spec test/"
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec test/"
   }
 }
