@@ -12,8 +12,7 @@ var Url = url.Url
  * See: https://github.com/joyent/node/pull/7878
  */
 
-var simplePathRegExp = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/
-var tryFastRegExp = /^\/[^\\#]*$/
+var simplePathRegExp = /^(\/\/?(?!\/)[^\?#\s]*)(\?[^#\s]*)?$/
 
 /**
  * Parse the `req` url with memoization.
@@ -52,27 +51,25 @@ module.exports = function parseUrl(req){
  */
 
 function fastparse(str) {
-  if (typeof str === 'string' && tryFastRegExp.test(str)) {
-    // Try fast path regexp
-    // See: https://github.com/joyent/node/pull/7878
-    var simplePath = simplePathRegExp.exec(str)
+  // Try fast path regexp
+  // See: https://github.com/joyent/node/pull/7878
+  var simplePath = typeof str === 'string' && simplePathRegExp.exec(str)
 
-    // Construct simple URL
-    if (simplePath) {
-      var url = Url !== undefined
-        ? new Url()
-        : {}
-      url.path = str
-      url.href = str
-      url.pathname = simplePath[1]
+  // Construct simple URL
+  if (simplePath) {
+    var url = Url !== undefined
+      ? new Url()
+      : {}
+    url.path = str
+    url.href = str
+    url.pathname = simplePath[1]
 
-      if (simplePath[2]) {
-        url.search = simplePath[2];
-        url.query = url.search.substr(1);
-      }
-
-      return url
+    if (simplePath[2]) {
+      url.search = simplePath[2];
+      url.query = url.search.substr(1);
     }
+
+    return url
   }
 
   return parse(str)

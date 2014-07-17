@@ -2,6 +2,7 @@ unreleased
 ==========
 
   * Cache URLs based on original value
+  * Simplify the "fast-path" `RegExp`
 
 1.1.3 / 2014-07-08
 ==================
