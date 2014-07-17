@@ -25,8 +25,7 @@ describe('parseurl(req)', function () {
 
   it('should not choke on auth-looking URL', function () {
     var req = createReq('//todo@txt')
-    var url = parseurl(req)
-    assert.ok(/^\/\/todo(?:@|%40)txt$/.test(url.pathname))
+    assert.equal(parseurl(req).pathname, '//todo@txt')
   })
 
   describe('when using the same request', function () {

@@ -27,16 +27,12 @@ module.exports = function parseUrl(req){
   var url = req.url
 
   if (fresh(url, parsed)) {
+    // Return cached URL parse
     return parsed
   }
 
+  // Parse the URL
   parsed = fastparse(url)
-
-  if (parsed.auth && !parsed.protocol && parsed.href.indexOf('//') !== -1) {
-    // This parses pathnames, and a strange pathname like //r@e should work
-    parsed = fastparse(url.replace(/@/g, '%40'))
-  }
-
   parsed._raw = url
 
   return req._parsedUrl = parsed
