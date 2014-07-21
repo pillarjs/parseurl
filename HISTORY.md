@@ -1,5 +1,5 @@
-unreleased
-==========
+1.2.0 / 2014-07-21
+==================
 
   * Cache URLs based on original value
   * Remove no-longer-needed URL mis-parse work-around
