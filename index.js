@@ -23,8 +23,14 @@ var simplePathRegExp = /^(\/\/?(?!\/)[^\?#\s]*)(\?[^#\s]*)?$/
  */
 
 module.exports = function parseUrl(req){
-  var parsed = req._parsedUrl
   var url = req.url
+
+  if (url === undefined) {
+    // URL is undefined
+    return undefined
+  }
+
+  var parsed = req._parsedUrl
 
   if (fresh(url, parsed)) {
     // Return cached URL parse

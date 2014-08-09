@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * Return `undefined` if `req.url` is `undefined`
+
 1.2.0 / 2014-07-21
 ==================
 

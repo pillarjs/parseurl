@@ -44,6 +44,12 @@ describe('parseurl(req)', function () {
     assert.equal(parseurl(req).pathname, '//todo@txt')
   })
 
+  it('should return undefined missing url', function () {
+    var req = createReq()
+    var url = parseurl(req)
+    assert.strictEqual(url, undefined)
+  })
+
   describe('when using the same request', function () {
     it('should parse multiple times', function () {
       var req = createReq('/foo/bar')
