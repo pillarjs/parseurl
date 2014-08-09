@@ -1,6 +1,7 @@
 unreleased
 ==========
 
+  * Add `parseurl.original` for parsing `req.originalUrl` with fallback
   * Return `undefined` if `req.url` is `undefined`
 
 1.2.0 / 2014-07-21

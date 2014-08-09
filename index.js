@@ -15,6 +15,13 @@ var Url = url.Url
 var simplePathRegExp = /^(\/\/?(?!\/)[^\?#\s]*)(\?[^#\s]*)?$/
 
 /**
+ * Exports.
+ */
+
+module.exports = parseurl
+module.exports.original = originalurl
+
+/**
  * Parse the `req` url with memoization.
  *
  * @param {ServerRequest} req
@@ -22,7 +29,7 @@ var simplePathRegExp = /^(\/\/?(?!\/)[^\?#\s]*)(\?[^#\s]*)?$/
  * @api public
  */
 
-module.exports = function parseUrl(req){
+function parseurl(req) {
   var url = req.url
 
   if (url === undefined) {
@@ -42,6 +49,36 @@ module.exports = function parseUrl(req){
   parsed._raw = url
 
   return req._parsedUrl = parsed
+};
+
+/**
+ * Parse the `req` original url with fallback and memoization.
+ *
+ * @param {ServerRequest} req
+ * @return {Object}
+ * @api public
+ */
+
+function originalurl(req) {
+  var url = req.originalUrl
+
+  if (typeof url !== 'string') {
+    // Fallback
+    return parseurl(req)
+  }
+
+  var parsed = req._parsedOriginalUrl
+
+  if (fresh(url, parsed)) {
+    // Return cached URL parse
+    return parsed
+  }
+
+  // Parse the URL
+  parsed = fastparse(url)
+  parsed._raw = url
+
+  return req._parsedOriginalUrl = parsed
 };
 
 /**
