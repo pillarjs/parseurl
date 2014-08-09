@@ -13,7 +13,7 @@
     "beautify-benchmark": "0.2.4",
     "fast-url-parser": "~1.0.0",
     "istanbul": "0.3.0",
-    "mocha": "~1.20.0"
+    "mocha": "~1.21.4"
   },
   "scripts": {
     "bench": "node benchmark/index.js",
