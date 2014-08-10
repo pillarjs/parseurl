@@ -1,5 +1,5 @@
-unreleased
-==========
+1.3.0 / 2014-08-09
+==================
 
   * Add `parseurl.original` for parsing `req.originalUrl` with fallback
   * Return `undefined` if `req.url` is `undefined`
