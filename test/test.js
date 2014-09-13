@@ -214,6 +214,30 @@ describe('parseurl.original(req)', function () {
   })
 })
 
+describe('parseurl.fastparse(str)', function () {
+  it('should fast parse simple path', function () {
+    var url = parseurl.fastparse('/foo/bar?fizz=buzz')
+    assert.equal(url.host, null)
+    assert.equal(url.hostname, null)
+    assert.equal(url.href, '/foo/bar?fizz=buzz')
+    assert.equal(url.pathname, '/foo/bar')
+    assert.equal(url.port, null)
+    assert.equal(url.query, 'fizz=buzz')
+    assert.equal(url.search, '?fizz=buzz')
+  })
+
+  it('should parse full path', function () {
+    var url = parseurl.fastparse('https://github.com:80/foo/bar?fizz=buzz')
+    assert.equal(url.host, 'github.com:80')
+    assert.equal(url.hostname, 'github.com')
+    assert.equal(url.href, 'https://github.com:80/foo/bar?fizz=buzz')
+    assert.equal(url.pathname, '/foo/bar')
+    assert.equal(url.port, 80)
+    assert.equal(url.query, 'fizz=buzz')
+    assert.equal(url.search, '?fizz=buzz')
+  });
+})
+
 function createReq(url, originalUrl) {
   return {
     originalUrl: originalUrl,

@@ -33,6 +33,11 @@ parses `req.url`. The result is the same as `url.parse` in Node.js core.
 Calling this function multiple times on the same `req` where `req.originalUrl`
 does not change will return a cached parsed object, rather than parsing again.
 
+### parseurl.fastparse(str)
+
+Parse the URL of the given string and return the result. The result is the
+same as `url.parse` in Node.js core.
+
 ## Benchmark
 
 ```bash
