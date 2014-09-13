@@ -26,6 +26,7 @@ var simplePathRegExp = /^(\/\/?(?!\/)[^\?#\s]*)(\?[^#\s]*)?$/
 
 module.exports = parseurl
 module.exports.original = originalurl
+module.exports.fastparse = fastparse
 
 /**
  * Parse the `req` url with memoization.
