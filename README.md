@@ -1,8 +1,8 @@
 # parseurl
 
 [![NPM version](https://badge.fury.io/js/parseurl.svg)](http://badge.fury.io/js/parseurl)
-[![Build Status](https://travis-ci.org/expressjs/parseurl.svg?branch=master)](https://travis-ci.org/expressjs/parseurl)
-[![Coverage Status](https://img.shields.io/coveralls/expressjs/parseurl.svg?branch=master)](https://coveralls.io/r/expressjs/parseurl)
+[![Build Status](https://travis-ci.org/pillarjs/parseurl.svg?branch=master)](https://travis-ci.org/pillarjs/parseurl)
+[![Coverage Status](https://img.shields.io/coveralls/pillarjs/parseurl.svg?branch=master)](https://coveralls.io/r/pillarjs/parseurl)
 
 Parse a URL with memoization.
 

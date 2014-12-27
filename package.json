@@ -6,7 +6,7 @@
   "contributors": [
     "Douglas Christopher Wilson <doug@somethingdoug.com>"
   ],
-  "repository": "expressjs/parseurl",
+  "repository": "pillarjs/parseurl",
   "license": "MIT",
   "devDependencies": {
     "benchmark": "1.0.0",
