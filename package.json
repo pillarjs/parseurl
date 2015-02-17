@@ -15,6 +15,12 @@
     "istanbul": "0.3.0",
     "mocha": "~1.21.4"
   },
+  "files": [
+    "LICENSE",
+    "HISTORY.md",
+    "README.md",
+    "index.js"
+  ],
   "scripts": {
     "bench": "node benchmark/index.js",
     "test": "mocha --check-leaks --bail --reporter spec test/",
