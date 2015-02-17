@@ -1,8 +1,9 @@
 # parseurl
 
-[![NPM version](https://badge.fury.io/js/parseurl.svg)](http://badge.fury.io/js/parseurl)
-[![Build Status](https://travis-ci.org/pillarjs/parseurl.svg?branch=master)](https://travis-ci.org/pillarjs/parseurl)
-[![Coverage Status](https://img.shields.io/coveralls/pillarjs/parseurl.svg?branch=master)](https://coveralls.io/r/pillarjs/parseurl)
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![Build Status][travis-image]][travis-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
 Parse a URL with memoization.
 
@@ -105,3 +106,12 @@ $ npm run-script bench
 ## License
 
   [MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/parseurl.svg
+[npm-url]: https://npmjs.org/package/parseurl
+[travis-image]: https://img.shields.io/travis/pillarjs/parseurl/master.svg
+[travis-url]: https://travis-ci.org/pillarjs/parseurl
+[coveralls-image]: https://img.shields.io/coveralls/pillarjs/parseurl/master.svg
+[coveralls-url]: https://coveralls.io/r/pillarjs/parseurl?branch=master
+[downloads-image]: https://img.shields.io/npm/dm/parseurl.svg
+[downloads-url]: https://npmjs.org/package/parseurl
