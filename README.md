@@ -2,6 +2,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
+[![Node.js Version][node-version-image]][node-version-url]
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
@@ -109,6 +110,8 @@ $ npm run-script bench
 
 [npm-image]: https://img.shields.io/npm/v/parseurl.svg
 [npm-url]: https://npmjs.org/package/parseurl
+[node-version-image]: https://img.shields.io/node/v/parseurl.svg
+[node-version-url]: http://nodejs.org/download/
 [travis-image]: https://img.shields.io/travis/pillarjs/parseurl/master.svg
 [travis-url]: https://travis-ci.org/pillarjs/parseurl
 [coveralls-image]: https://img.shields.io/coveralls/pillarjs/parseurl/master.svg

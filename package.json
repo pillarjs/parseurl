@@ -21,6 +21,9 @@
     "README.md",
     "index.js"
   ],
+  "engines": {
+    "node": ">= 0.8"
+  },
   "scripts": {
     "bench": "node benchmark/index.js",
     "test": "mocha --check-leaks --bail --reporter spec test/",
