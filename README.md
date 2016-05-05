@@ -43,6 +43,16 @@ $ npm run-script bench
 > parseurl@1.3.1 bench nodejs-parseurl
 > node benchmark/index.js
 
+  http_parser@2.5.2
+  node@4.4.3
+  v8@4.5.103.35
+  uv@1.8.0
+  zlib@1.2.8
+  ares@1.10.1-DEV
+  icu@56.1
+  modules@46
+  openssl@1.0.2g
+
 > node benchmark/fullurl.js
 
   Parsing URL "http://localhost:8888/foo/bar?user=tj&pet=fluffy"
@@ -51,9 +61,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 1,290,780 ops/sec ±0.46% (195 runs sampled)
-  nativeurl x    56,401 ops/sec ±0.22% (196 runs sampled)
-  parseurl  x    55,231 ops/sec ±0.22% (194 runs sampled)
+  fasturl   x 1,126,841 ops/sec ±1.87% (185 runs sampled)
+  nativeurl x    86,169 ops/sec ±0.65% (187 runs sampled)
+  parseurl  x    80,604 ops/sec ±1.80% (186 runs sampled)
 
 > node benchmark/pathquery.js
 
@@ -63,9 +73,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 1,986,668 ops/sec ±0.27% (190 runs sampled)
-  nativeurl x    98,740 ops/sec ±0.21% (195 runs sampled)
-  parseurl  x 2,628,171 ops/sec ±0.36% (195 runs sampled)
+  fasturl   x 1,942,484 ops/sec ±0.69% (188 runs sampled)
+  nativeurl x   719,094 ops/sec ±0.93% (187 runs sampled)
+  parseurl  x 2,592,042 ops/sec ±0.82% (189 runs sampled)
 
 > node benchmark/samerequest.js
 
@@ -75,9 +85,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x  2,184,468 ops/sec ±0.40% (194 runs sampled)
-  nativeurl x     99,437 ops/sec ±0.71% (194 runs sampled)
-  parseurl  x 10,498,005 ops/sec ±0.61% (186 runs sampled)
+  fasturl   x  1,917,012 ops/sec ±1.26% (187 runs sampled)
+  nativeurl x    720,034 ops/sec ±0.90% (187 runs sampled)
+  parseurl  x 10,788,929 ops/sec ±0.59% (187 runs sampled)
 
 > node benchmark/simplepath.js
 
@@ -87,9 +97,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 4,535,825 ops/sec ±0.27% (191 runs sampled)
-  nativeurl x    98,769 ops/sec ±0.54% (191 runs sampled)
-  parseurl  x 4,164,865 ops/sec ±0.34% (192 runs sampled)
+  fasturl   x 5,040,171 ops/sec ±1.47% (187 runs sampled)
+  nativeurl x 1,048,939 ops/sec ±1.06% (188 runs sampled)
+  parseurl  x 5,071,671 ops/sec ±1.73% (184 runs sampled)
 
 > node benchmark/slash.js
 
@@ -99,9 +109,9 @@ $ npm run-script bench
   2 tests completed.
   3 tests completed.
 
-  fasturl   x 4,908,405 ops/sec ±0.42% (191 runs sampled)
-  nativeurl x   100,945 ops/sec ±0.59% (188 runs sampled)
-  parseurl  x 4,333,208 ops/sec ±0.27% (194 runs sampled)
+  fasturl   x 4,113,868 ops/sec ±1.22% (187 runs sampled)
+  nativeurl x   994,455 ops/sec ±2.00% (188 runs sampled)
+  parseurl  x 5,732,749 ops/sec ±0.74% (189 runs sampled)
 ```
 
 ## License
