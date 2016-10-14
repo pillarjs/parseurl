@@ -9,7 +9,7 @@
   "repository": "pillarjs/parseurl",
   "license": "MIT",
   "devDependencies": {
-    "benchmark": "2.1.0",
+    "benchmark": "2.1.1",
     "beautify-benchmark": "0.2.4",
     "fast-url-parser": "1.1.3",
     "istanbul": "0.4.4",
