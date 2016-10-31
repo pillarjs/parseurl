@@ -214,9 +214,9 @@ describe('parseurl.original(req)', function () {
   })
 })
 
-function createReq(url, originalUrl) {
+function createReq (url, originalUrl) {
   return {
     originalUrl: originalUrl,
     url: url
-  };
+  }
 }

@@ -18,7 +18,7 @@ var benchmark = require('benchmark')
 var benchmarks = require('beautify-benchmark')
 
 var assertValues = 'assert.strictEqual(obj.pathname, "/foo/bar"); assert.strictEqual(obj.query, "user=tj&pet=fluffy");'
-var suite = new benchmark.Suite
+var suite = new benchmark.Suite()
 
 suite.add({
   name: 'fasturl',
@@ -41,22 +41,22 @@ suite.add({
   setup: 'req = createReq(url)'
 })
 
-suite.on('start', function onCycle(event) {
-  process.stdout.write('  Parsing URL ' + JSON.stringify(url) + ' on same request object\n\n')
+suite.on('start', function onCycle (event) {
+  process.stdout.write('  Parsing URL ' + JSON.stringify(global.url) + ' on same request object\n\n')
 })
 
-suite.on('cycle', function onCycle(event) {
-  benchmarks.add(event.target);
+suite.on('cycle', function onCycle (event) {
+  benchmarks.add(event.target)
 })
 
-suite.on('complete', function onComplete() {
-  benchmarks.log();
+suite.on('complete', function onComplete () {
+  benchmarks.log()
 })
 
 suite.run({async: false})
 
-function createReq(url) {
+function createReq (url) {
   return {
     url: url
-  };
+  }
 }
