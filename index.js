@@ -20,7 +20,7 @@ var Url = url.Url
  * See: https://github.com/joyent/node/pull/7878
  */
 
-var simplePathRegExp = /^(\/\/?(?!\/)[^?#\s]*)(\?[^#\s]*)?$/
+var simplePathRegExp = /^(\/\/?(?!\/)[^?#\s]*)(\?[^#\s]*$|$)/
 
 /**
  * Exports.
