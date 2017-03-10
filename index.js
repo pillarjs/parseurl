@@ -9,6 +9,7 @@
 
 /**
  * Module dependencies.
+ * @private
  */
 
 var url = require('url')
@@ -18,12 +19,14 @@ var Url = url.Url
 /**
  * Pattern for a simple path case.
  * See: https://github.com/joyent/node/pull/7878
+ * @private
  */
 
 var simplePathRegExp = /^(\/\/?(?!\/)[^?#\s]*)(\?[^#\s]*)?$/
 
 /**
- * Exports.
+ * Module exports.
+ * @public
  */
 
 module.exports = parseurl
@@ -34,7 +37,7 @@ module.exports.original = originalurl
  *
  * @param {ServerRequest} req
  * @return {Object}
- * @api public
+ * @public
  */
 
 function parseurl (req) {
@@ -64,7 +67,7 @@ function parseurl (req) {
  *
  * @param {ServerRequest} req
  * @return {Object}
- * @api public
+ * @public
  */
 
 function originalurl (req) {
@@ -94,7 +97,7 @@ function originalurl (req) {
  *
  * @param {string} str
  * @return {Object}
- * @api private
+ * @private
  */
 
 function fastparse (str) {
@@ -127,7 +130,7 @@ function fastparse (str) {
  * @param {string} url
  * @param {object} parsedUrl
  * @return {boolean}
- * @api private
+ * @private
  */
 
 function fresh (url, parsedUrl) {
