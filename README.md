@@ -10,7 +10,7 @@ Parse a URL with memoization.
 
 ## Install
 
-```bash
+```sh
 $ npm install parseurl
 ```
 
