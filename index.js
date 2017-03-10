@@ -22,7 +22,7 @@ var Url = url.Url
  * @private
  */
 
-var simplePathRegExp = /^(\/\/?(?!\/)[^?#\s]*)(\?[^#\s]*)?$/
+var SIMPLE_PATH_REGEXP = /^(\/\/?(?!\/)[^?#\s]*)(\?[^#\s]*)?$/
 
 /**
  * Module exports.
@@ -103,7 +103,7 @@ function originalurl (req) {
 function fastparse (str) {
   // Try fast path regexp
   // See: https://github.com/joyent/node/pull/7878
-  var simplePath = typeof str === 'string' && simplePathRegExp.exec(str)
+  var simplePath = typeof str === 'string' && SIMPLE_PATH_REGEXP.exec(str)
 
   // Construct simple URL
   if (simplePath) {
