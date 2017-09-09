@@ -63,9 +63,9 @@ $ npm run-script bench
 
   3 tests completed.
 
-  fasturl   x 1,241,932 ops/sec ±0.71% (188 runs sampled)
-  nativeurl x    86,190 ops/sec ±0.57% (188 runs sampled)
-  parseurl  x    84,881 ops/sec ±0.52% (189 runs sampled)
+  fasturl   x 1,283,955 ops/sec ±0.58% (188 runs sampled)
+  nativeurl x    86,909 ops/sec ±0.94% (186 runs sampled)
+  parseurl  x    86,819 ops/sec ±0.51% (189 runs sampled)
 
 > node benchmark/pathquery.js
 

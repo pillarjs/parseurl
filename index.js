@@ -103,7 +103,9 @@ function originalurl (req) {
 function fastparse (str) {
   // Try fast path regexp
   // See: https://github.com/joyent/node/pull/7878
-  var simplePath = typeof str === 'string' && SIMPLE_PATH_REGEXP.exec(str)
+  var simplePath = typeof str === 'string' &&
+    str.charCodeAt(0) === 0x2f /* / */ &&
+    SIMPLE_PATH_REGEXP.exec(str)
 
   // Construct simple URL
   if (simplePath) {

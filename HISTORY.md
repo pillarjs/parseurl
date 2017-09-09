@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * perf: reduce overhead for full URLs
+
 1.3.1 / 2016-01-17
 ==================
 
