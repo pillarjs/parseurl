@@ -44,7 +44,7 @@ does not change will return a cached parsed object, rather than parsing again.
 ```bash
 $ npm run-script bench
 
-> parseurl@1.3.1 bench nodejs-parseurl
+> parseurl@1.3.2 bench nodejs-parseurl
 > node benchmark/index.js
 
   http_parser@2.7.0

@@ -1,5 +1,5 @@
-unreleased
-==========
+1.3.2 / 2017-09-09
+==================
 
   * perf: reduce overhead for full URLs
   * perf: unroll the "fast-path" `RegExp`
