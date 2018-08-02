@@ -17,7 +17,7 @@ global.url = '/foo/bar?user=tj&pet=fluffy'
 var benchmark = require('benchmark')
 var benchmarks = require('beautify-benchmark')
 
-var assertValues = 'assert.strictEqual(obj.pathname, "/foo/bar"); assert.strictEqual(obj.query, "user=tj&pet=fluffy");'
+var assertValues = 'assert.strictEqual(obj.pathname, "/foo/bar"); assert.strictEqual(obj.search, "?user=tj&pet=fluffy");'
 var suite = new benchmark.Suite()
 
 suite.add({
@@ -28,11 +28,20 @@ suite.add({
 })
 
 suite.add({
-  name: 'nativeurl',
+  name: 'nativeurl' + (global.nativeurl.URL ? ' - legacy' : ''),
   minSamples: 100,
   fn: 'var obj = nativeurl.parse(req.url);' + assertValues,
   setup: 'req = createReq(url)'
 })
+
+if (global.nativeurl.URL) {
+  suite.add({
+    name: 'nativeurl - whatwg',
+    minSamples: 100,
+    fn: 'var obj = new nativeurl.URL(req.url, "http://localhost");' + assertValues,
+    setup: 'req = createReq(url)'
+  })
+}
 
 suite.add({
   name: 'parseurl',
