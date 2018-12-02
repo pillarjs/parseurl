@@ -1,8 +1,8 @@
 # parseurl
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![Node.js Version][node-version-image]][node-version-url]
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+[![Node.js Version][node-image]][node-url]
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
@@ -122,13 +122,12 @@ $ npm run-script bench
 
   [MIT](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/parseurl.svg
-[npm-url]: https://npmjs.org/package/parseurl
-[node-version-image]: https://img.shields.io/node/v/parseurl.svg
-[node-version-url]: https://nodejs.org/en/download/
-[travis-image]: https://img.shields.io/travis/pillarjs/parseurl/master.svg
-[travis-url]: https://travis-ci.org/pillarjs/parseurl
-[coveralls-image]: https://img.shields.io/coveralls/pillarjs/parseurl/master.svg
+[coveralls-image]: https://badgen.net/coveralls/c/github/pillarjs/parseurl/master
 [coveralls-url]: https://coveralls.io/r/pillarjs/parseurl?branch=master
-[downloads-image]: https://img.shields.io/npm/dm/parseurl.svg
-[downloads-url]: https://npmjs.org/package/parseurl
+[node-image]: https://badgen.net/npm/node/parseurl
+[node-url]: https://nodejs.org/en/download
+[npm-downloads-image]: https://badgen.net/npm/dm/parseurl
+[npm-url]: https://npmjs.org/package/parseurl
+[npm-version-image]: https://badgen.net/npm/v/parseurl
+[travis-image]: https://badgen.net/travis/pillarjs/parseurl/master
+[travis-url]: https://travis-ci.org/pillarjs/parseurl
