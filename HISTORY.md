@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * Fix Node.js 0.8 return value inconsistencies
+
 1.3.2 / 2017-09-09
 ==================
 
