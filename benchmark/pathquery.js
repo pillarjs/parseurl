@@ -58,7 +58,7 @@ suite.on('complete', function onComplete () {
   benchmarks.log()
 })
 
-suite.run({async: false})
+suite.run({ async: false })
 
 function createReq (url) {
   return {
