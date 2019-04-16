@@ -1,5 +1,5 @@
-unreleased
-==========
+1.3.3 / 2019-04-15
+==================
 
   * Fix Node.js 0.8 return value inconsistencies
 
