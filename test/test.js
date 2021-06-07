@@ -7,7 +7,7 @@ var URL_EMPTY_VALUE = url.Url
   ? null : undefined
 
 describe('parseurl(req)', function () {
-  it('should parse the requrst URL', function () {
+  it('should parse the request URL', function () {
     var req = createReq('/foo/bar')
     var url = parseurl(req)
     assert.strictEqual(url.host, URL_EMPTY_VALUE)
