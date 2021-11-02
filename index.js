@@ -13,7 +13,7 @@
  */
 
 var url = require('url')
-var parse = url.parse
+var parse = url.parse // eslint-disable-line
 var Url = url.Url
 
 /**
