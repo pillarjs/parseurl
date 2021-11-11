@@ -27,6 +27,7 @@ jobs:
         - Node.js 12.x
         - Node.js 13.x
         - Node.js 14.x
+        - Node.js 15.x
 
         include:
         - name: Node.js 0.8
@@ -105,6 +106,10 @@ jobs:
 
         - name: Node.js 14.x
           node-version: "14.18"
+          npm-rm: beautify-benchmark benchmark fast-url-parser
+
+        - name: Node.js 15.x
+          node-version: "15.14"
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
     steps:
