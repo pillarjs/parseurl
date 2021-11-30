@@ -82,10 +82,12 @@ jobs:
 
         - name: Node.js 8.x
           node-version: "8.15"
+          npm-i: mocha@7.2.0
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 9.x
           node-version: "9.11"
+          npm-i: mocha@7.2.0
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 10.x
