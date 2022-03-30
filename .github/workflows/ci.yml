@@ -111,7 +111,7 @@ jobs:
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 14.x
-          node-version: "14.18"
+          node-version: "14.19"
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 15.x
