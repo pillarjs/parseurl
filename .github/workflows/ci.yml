@@ -84,7 +84,7 @@ jobs:
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 8.x
-          node-version: "8.15"
+          node-version: "8.17"
           npm-i: mocha@7.2.0
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
