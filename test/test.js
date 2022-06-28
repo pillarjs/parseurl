@@ -4,7 +4,8 @@ var parseurl = require('..')
 var url = require('url')
 
 var URL_EMPTY_VALUE = url.Url
-  ? null : undefined
+  ? null
+  : undefined
 
 describe('parseurl(req)', function () {
   it('should parse the request URL', function () {
