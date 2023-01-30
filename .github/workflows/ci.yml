@@ -130,7 +130,7 @@ jobs:
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
         - name: Node.js 18.x
-          node-version: "18.12"
+          node-version: "18.13"
           npm-rm: beautify-benchmark benchmark fast-url-parser
 
     steps:
