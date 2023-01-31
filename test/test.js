@@ -32,6 +32,30 @@ describe('parseurl(req)', function () {
     assert.strictEqual(url.search, '?fizz=buzz')
   })
 
+  it('should parse with hash', function () {
+    var req = createReq('/foo/bar#bazz')
+    var url = parseurl(req)
+    assert.strictEqual(url.host, URL_EMPTY_VALUE)
+    assert.strictEqual(url.hostname, URL_EMPTY_VALUE)
+    assert.strictEqual(url.href, '/foo/bar#bazz')
+    assert.strictEqual(url.pathname, '/foo/bar')
+    assert.strictEqual(url.port, URL_EMPTY_VALUE)
+    assert.strictEqual(url.query, URL_EMPTY_VALUE)
+    assert.strictEqual(url.search, URL_EMPTY_VALUE)
+  })
+
+  it('should parse with query string and hash', function () {
+    var req = createReq('/foo/bar?fizz=buzz#bazz')
+    var url = parseurl(req)
+    assert.strictEqual(url.host, URL_EMPTY_VALUE)
+    assert.strictEqual(url.hostname, URL_EMPTY_VALUE)
+    assert.strictEqual(url.href, '/foo/bar?fizz=buzz#bazz')
+    assert.strictEqual(url.pathname, '/foo/bar')
+    assert.strictEqual(url.port, URL_EMPTY_VALUE)
+    assert.strictEqual(url.query, 'fizz=buzz')
+    assert.strictEqual(url.search, '?fizz=buzz')
+  })
+
   it('should parse a full URL', function () {
     var req = createReq('http://localhost:8888/foo/bar')
     var url = parseurl(req)
