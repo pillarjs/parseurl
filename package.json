@@ -11,7 +11,7 @@
   "devDependencies": {
     "beautify-benchmark": "0.2.4",
     "benchmark": "2.1.4",
-    "eslint": "8.33.0",
+    "eslint": "9.30.0",
     "eslint-config-standard": "15.0.1",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-node": "11.1.0",
