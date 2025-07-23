@@ -7,6 +7,10 @@
     "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)"
   ],
   "repository": "pillarjs/parseurl",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/express"
+  },
   "license": "MIT",
   "devDependencies": {
     "beautify-benchmark": "0.2.4",
