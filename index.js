@@ -15,9 +15,6 @@
 var url = require('url')
 var Url = url.Url
 
-var URL_PATTERN =
-  /^(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?/
-
 /**
  * Module exports.
  * @public
@@ -33,46 +30,42 @@ function parseUrlString (str) {
 
   str = str.trim()
 
-  var match = URL_PATTERN.exec(str)
-  if (!match) {
-    return {}
-  }
-
-  var protocol = match[1]
-  var host = match[2] || null
-  var pathname = match[3] || '/'
-  var search = match[4] ? '?' + match[4] : null
-  var hash = match[5] ? '#' + match[5] : null
-
   var result = Url !== undefined ? new Url() : {}
+  var parsedUrl
+
+  try {
+    var isRelative = str.charCodeAt(0) === 0x2f /* / */ || !str.includes('://')
+    parsedUrl = isRelative ? new URL(str, 'http://localhost') : new URL(str)
+  } catch (err) {
+    result.href = str
+    result.path = str
+    result.pathname = str
+    return result
+  }
 
   result.href = str
-  result.path = pathname + (search || '')
-  result.pathname = pathname
-  result.search = search
-  result.query = match[4] || null
-  result.hash = hash
+  result.path = parsedUrl.pathname + parsedUrl.search
+  result.pathname = parsedUrl.pathname
+  result.search = parsedUrl.search || null
+  result.query = parsedUrl.search ? parsedUrl.search.substring(1) : null
+  result.hash = parsedUrl.hash || null
 
-  if (protocol) {
-    result.protocol = protocol + ':'
-  }
-
-  if (host) {
-    result.host = host
-    var hostParts = host.split(':')
-    result.hostname = hostParts[0]
-    result.port = hostParts[1] || null
-
-    var atIndex = result.hostname.indexOf('@')
-    if (atIndex !== -1) {
-      result.auth = result.hostname.substring(0, atIndex)
-      result.hostname = result.hostname.substring(atIndex + 1)
-      result.host = result.hostname + (result.port ? ':' + result.port : '')
-    }
+  if (parsedUrl.protocol && str.includes('://')) {
+    result.protocol = parsedUrl.protocol
+    result.host = parsedUrl.host
+    result.hostname = parsedUrl.hostname
+    result.port = parsedUrl.port || null
+    result.auth =
+      parsedUrl.username || parsedUrl.password
+        ? (parsedUrl.username || '') +
+          (parsedUrl.password ? ':' + parsedUrl.password : '')
+        : null
   } else {
+    result.protocol = null
     result.host = null
     result.hostname = null
     result.port = null
+    result.auth = null
   }
 
   return result
