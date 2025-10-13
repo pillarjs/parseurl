@@ -160,12 +160,16 @@ function fastparse (str) {
           search = str.substring(i)
         }
         break
+      case 0x23 /* #  */:
+        if (search === null) {
+          pathname = str.substring(0, i)
+        }
+        return parseUrlString(str)
       case 0x09: /* \t */
       case 0x0a: /* \n */
       case 0x0c: /* \f */
       case 0x0d: /* \r */
       case 0x20: /*    */
-      case 0x23: /* #  */
       case 0xa0:
       case 0xfeff:
         return parseUrlString(str)
