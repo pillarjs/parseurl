@@ -13,7 +13,6 @@
  */
 
 var url = require('url')
-var parse = url.parse // eslint-disable-line
 var Url = url.Url
 
 /**
@@ -23,6 +22,54 @@ var Url = url.Url
 
 module.exports = parseurl
 module.exports.original = originalurl
+
+function parseUrlString (str) {
+  if (typeof str !== 'string') {
+    return {}
+  }
+
+  str = str.trim()
+
+  var result = Url !== undefined ? new Url() : {}
+  var parsedUrl
+
+  try {
+    var isRelative = str.charCodeAt(0) === 0x2f /* / */ || !str.includes('://')
+    parsedUrl = isRelative ? new URL(str, 'http://localhost') : new URL(str)
+  } catch (err) {
+    result.href = str
+    result.path = str
+    result.pathname = str
+    return result
+  }
+
+  result.href = str
+  result.path = parsedUrl.pathname + parsedUrl.search
+  result.pathname = parsedUrl.pathname
+  result.search = parsedUrl.search || null
+  result.query = parsedUrl.search ? parsedUrl.search.substring(1) : null
+  result.hash = parsedUrl.hash || null
+
+  if (parsedUrl.protocol && str.includes('://')) {
+    result.protocol = parsedUrl.protocol
+    result.host = parsedUrl.host
+    result.hostname = parsedUrl.hostname
+    result.port = parsedUrl.port || null
+    result.auth =
+      parsedUrl.username || parsedUrl.password
+        ? (parsedUrl.username || '') +
+          (parsedUrl.password ? ':' + parsedUrl.password : '')
+        : null
+  } else {
+    result.protocol = null
+    result.host = null
+    result.hostname = null
+    result.port = null
+    result.auth = null
+  }
+
+  return result
+}
 
 /**
  * Parse the `req` url with memoization.
@@ -52,7 +99,7 @@ function parseurl (req) {
   parsed._raw = url
 
   return (req._parsedUrl = parsed)
-};
+}
 
 /**
  * Parse the `req` original url with fallback and memoization.
@@ -82,7 +129,7 @@ function originalurl (req) {
   parsed._raw = url
 
   return (req._parsedOriginalUrl = parsed)
-};
+}
 
 /**
  * Parse the `str` url with fast-path short-cut.
@@ -94,7 +141,7 @@ function originalurl (req) {
 
 function fastparse (str) {
   if (typeof str !== 'string' || str.charCodeAt(0) !== 0x2f /* / */) {
-    return parse(str)
+    return parseUrlString(str)
   }
 
   var pathname = str
@@ -106,28 +153,30 @@ function fastparse (str) {
   // And unrolls it into a for loop
   for (var i = 1; i < str.length; i++) {
     switch (str.charCodeAt(i)) {
-      case 0x3f: /* ?  */
+      case 0x3f /* ?  */:
         if (search === null) {
           pathname = str.substring(0, i)
           query = str.substring(i + 1)
           search = str.substring(i)
         }
         break
+      case 0x23 /* #  */:
+        if (search === null) {
+          pathname = str.substring(0, i)
+        }
+        return parseUrlString(str)
       case 0x09: /* \t */
       case 0x0a: /* \n */
       case 0x0c: /* \f */
       case 0x0d: /* \r */
       case 0x20: /*    */
-      case 0x23: /* #  */
       case 0xa0:
       case 0xfeff:
-        return parse(str)
+        return parseUrlString(str)
     }
   }
 
-  var url = Url !== undefined
-    ? new Url()
-    : {}
+  var url = Url !== undefined ? new Url() : {}
 
   url.path = str
   url.href = str
@@ -151,8 +200,10 @@ function fastparse (str) {
  */
 
 function fresh (url, parsedUrl) {
-  return typeof parsedUrl === 'object' &&
+  return (
+    typeof parsedUrl === 'object' &&
     parsedUrl !== null &&
     (Url === undefined || parsedUrl instanceof Url) &&
     parsedUrl._raw === url
+  )
 }
