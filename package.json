@@ -40,5 +40,9 @@
     "test": "mocha --check-leaks --bail --reporter spec test/",
     "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
     "test-cov": "nyc --reporter=html --reporter=text npm test"
+  },
+  "homepage": "https://github.com/pillarjs/parseurl",
+  "bugs": {
+    "url": "https://github.com/pillarjs/parseurl/issues"
   }
 }
