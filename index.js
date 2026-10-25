@@ -119,6 +119,7 @@ function fastparse (str) {
       case 0x0d: /* \r */
       case 0x20: /*    */
       case 0x23: /* #  */
+      case 0x5c: /* \\ */
       case 0xa0:
       case 0xfeff:
         return parse(str)

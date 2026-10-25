@@ -2,6 +2,8 @@
 var assert = require('assert')
 var parseurl = require('..')
 var url = require('url')
+// Compare against the legacy parser used by this module.
+var parse = url.parse // eslint-disable-line node/no-deprecated-api
 
 var URL_EMPTY_VALUE = url.Url
   ? null
@@ -18,6 +20,23 @@ describe('parseurl(req)', function () {
     assert.strictEqual(url.port, URL_EMPTY_VALUE)
     assert.strictEqual(url.query, URL_EMPTY_VALUE)
     assert.strictEqual(url.search, URL_EMPTY_VALUE)
+  })
+
+  it('should normalize backslashes in the pathname like url.parse', function () {
+    var input = '/foo\\bar?path=one\\two'
+    var expected = parse(input)
+    var req = createReq(input)
+    var parsed = parseurl(req)
+    assert.strictEqual(parsed.pathname, expected.pathname)
+    assert.strictEqual(parsed.path, expected.path)
+    assert.strictEqual(parsed.href, expected.href)
+    assert.strictEqual(parsed.query, expected.query)
+    assert.strictEqual(parseurl(req), parsed)
+  })
+
+  it('should preserve backslashes in the query like url.parse', function () {
+    var input = '/foo?path=one\\two'
+    assert.strictEqual(parseurl(createReq(input)).query, parse(input).query)
   })
 
   it('should parse with query string', function () {
@@ -143,6 +162,18 @@ describe('parseurl.original(req)', function () {
     assert.strictEqual(url.port, URL_EMPTY_VALUE)
     assert.strictEqual(url.query, URL_EMPTY_VALUE)
     assert.strictEqual(url.search, URL_EMPTY_VALUE)
+  })
+
+  it('should normalize backslashes in originalUrl like url.parse', function () {
+    var input = '/foo\\bar?path=one\\two'
+    var expected = parse(input)
+    var req = createReq('/rewritten', input)
+    var parsed = parseurl.original(req)
+    assert.strictEqual(parsed.pathname, expected.pathname)
+    assert.strictEqual(parsed.path, expected.path)
+    assert.strictEqual(parsed.href, expected.href)
+    assert.strictEqual(parsed.query, expected.query)
+    assert.strictEqual(parseurl.original(req), parsed)
   })
 
   it('should parse originalUrl when different', function () {
